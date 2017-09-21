@@ -1,2 +1,2 @@
-- git: {local-name: rplidar, uri: 'https://github.com/FRC900/rplidar.git'}
+- git: {local-name: rplidar_ros, uri: 'https://github.com/FRC900/rplidar_ros.git'}
 
