@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rplidar_ros)
 
+include ("../cmake_modules/CMakeOpt.cmake")
+
 set(RPLIDAR_SDK_PATH "./sdk/")
 
 FILE(GLOB RPLIDAR_SDK_SRC 
