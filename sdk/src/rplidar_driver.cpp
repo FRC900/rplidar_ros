@@ -86,7 +86,7 @@ RPlidarDriverSerialImpl::~RPlidarDriverSerialImpl()
     rp::hal::serial_rxtx::ReleaseRxTx(_rxtx);
 }
 
-u_result RPlidarDriverSerialImpl::connect(const char * port_path, _u32 baudrate, _u32 flag)
+u_result RPlidarDriverSerialImpl::connect(const char * port_path, _u32 baudrate, _u32 /*flag*/)
 {
     if (isConnected()) return RESULT_ALREADY_DONE;
 
@@ -124,7 +124,7 @@ bool RPlidarDriverSerialImpl::isConnected()
 }
 
 
-u_result RPlidarDriverSerialImpl::reset(_u32 timeout)
+u_result RPlidarDriverSerialImpl::reset(_u32 /*timeout*/)
 {
     u_result ans;
 
@@ -352,7 +352,7 @@ u_result RPlidarDriverSerialImpl::startScan(bool force, bool autoExpressMode)
     return startScanNormal(force);
 }
 
-u_result RPlidarDriverSerialImpl::stop(_u32 timeout)
+u_result RPlidarDriverSerialImpl::stop(_u32 /*timeout*/)
 {
     u_result ans;
     _disableDataGrabbing();

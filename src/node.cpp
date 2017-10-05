@@ -157,8 +157,8 @@ bool checkRPLIDARHealth(RPlidarDriver * drv)
     }
 }
 
-bool stop_motor(std_srvs::Empty::Request &req,
-                               std_srvs::Empty::Response &res)
+bool stop_motor(std_srvs::Empty::Request &/*req*/,
+                               std_srvs::Empty::Response &/*res*/)
 {
   if(!drv)
        return false;
@@ -169,8 +169,8 @@ bool stop_motor(std_srvs::Empty::Request &req,
   return true;
 }
 
-bool start_motor(std_srvs::Empty::Request &req,
-                               std_srvs::Empty::Response &res)
+bool start_motor(std_srvs::Empty::Request &/*req*/,
+                               std_srvs::Empty::Response &/*res*/)
 {
   if(!drv)
        return false;
@@ -199,7 +199,7 @@ int main(int argc, char * argv[]) {
     nh_private.param<bool>("angle_compensate", angle_compensate, true);
 
     printf("RPLIDAR running on ROS package rplidar_ros\n"
-           "SDK Version: "RPLIDAR_SDK_VERSION"\n");
+           "SDK Version: " RPLIDAR_SDK_VERSION"\n");
 
     u_result     op_result;
 
@@ -261,7 +261,8 @@ int main(int argc, char * argv[]) {
                     int angle_compensate_offset = 0;
                     rplidar_response_measurement_node_t angle_compensate_nodes[angle_compensate_nodes_count];
                     memset(angle_compensate_nodes, 0, angle_compensate_nodes_count*sizeof(rplidar_response_measurement_node_t));
-                    int i = 0, j = 0;
+                    size_t i = 0;
+					int j = 0;
                     for( ; i < count; i++ ) {
                         if (nodes[i].distance_q2 != 0) {
                             float angle = (float)((nodes[i].angle_q6_checkbit >> RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT)/64.0f);
