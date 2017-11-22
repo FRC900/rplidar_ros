@@ -573,7 +573,7 @@ u_result RPlidarDriverSerialImpl::ascendScanData(rplidar_response_measurement_no
     if (i == count) return RESULT_OPERATION_FAIL;
 
     //Tune tail
-    for (i = count - 1; i >= 0; i--) {
+    for (i = count - 1; (int)i >= 0; i--) {
         if(nodebuffer[i].distance_q2 == 0) {
             continue;
         } else {
