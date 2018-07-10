@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(rplidar_ros)
 
 include ("../cmake_modules/CMakeOpt.cmake")
+add_definitions(--std=gnu++98) # Avoid weirdness with c++11 and opt_random.h
 
 set(RPLIDAR_SDK_PATH "./sdk/")
 
